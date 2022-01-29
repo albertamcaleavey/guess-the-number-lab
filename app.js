@@ -10,8 +10,18 @@ const game = {
       
   },
   getGuess: function() {
-    return `Enter a guess between ${this.smallestNum} and ${this.biggestNum} :`
+    let currentGuess = ''
+    while(this.currentGuess !== this.secretNum){
+      prompt `Enter a guess between ${this.smallestNum} and ${this.biggestNum} :`
+    }
+    console.log(getGuess)
   }
 }
+
+
+
+
+
+
 
 console.log(game.getGuess())
