@@ -7,21 +7,18 @@ const game = {
   play: function() {
     this.secretNum = Math.floor(Math.random() * 
       (this.biggestNum - this.smallestNum + 1)) + this.smallestNum
-      
   },
   getGuess: function() {
-    let currentGuess = ''
+    let currentGuess = null
     while(this.currentGuess !== this.secretNum){
-      prompt `Enter a guess between ${this.smallestNum} and ${this.biggestNum} :`
+      this.currentGuess = prompt (`Enter a guess between ${this.smallestNum} and ${this.biggestNum} :`)
     }
-    console.log(getGuess)
+    // currentGuess points to the user input of the prompt message that appears in the window
+    
+    // if the currentGuess is not the same as secretNum, the while loop continues to prompt the user to enter a guess until it is
+    
   }
+  
 }
 
-
-
-
-
-
-
-console.log(game.getGuess())
+// console.log(game.getGuess())
