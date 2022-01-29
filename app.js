@@ -9,6 +9,7 @@ const game = {
       (this.biggestNum - this.smallestNum + 1)) + this.smallestNum
       // generates a random number in the range of smallestNum- biggestNum 
       let getGuessNum 
+      let callRender 
     do {
       getGuessNum = this.getGuess()
       // created a variable to store the return value of getGuess() and invoked the getGuess() function
@@ -16,6 +17,7 @@ const game = {
       // adds the user's guess to the prevGuesses array
       // console.log(this.prevGuesses)
       // return this.prevGuesses
+      callRender = this.render()
     } while (this.prevGuesses[this.prevGuesses.length - 1] !== this.secretNum)
     // used bracket notation to refer to the last element in the prevGuesses array
     // while the last element in the array is not the same as the secret number, invoke getGuess() and add its value (currentGuess) to the array
@@ -33,24 +35,27 @@ const game = {
     }
   },
   render: function() {
-    let getGuessNum2 = getGuess()
-    // created a new variable that will also hold the value that getGuess() returns, since the one created in play can't be referenced to here due to scope
-    if(getGuessNum2 === this.secretNum) {
+    let getGuessNumAgain 
+    getGuessNumAgain = this.getGuess()
+    // created a new variable that will hold the value that getGuess() returns, 
+    // the variable getGuess created in play can't be referenced here due to scope
+    if(getGuessNumAgain === this.secretNum) {
       alert(`Congrats! You guessed the number in ${this.prevGuesses[this.prevGuesses.length - 1]} attempts!`)
-      // if the user's guess is the same as secretNum, return the above message 
-    } else if (getGuessNum2 > this.secretNum) {
+      // if the user's guess is the same as secretNum, show the above message 
+    } else if (getGuessNumAgain > this.secretNum) {
       alert(`Your guess is too high! Previous guesses: ${this.prevGuesses.join}`)
-
-    } else if (getGuessNum2 < this.secretNum) {
+      // if the user's guess is greater than secretNum, show the above message
+    } else if (getGuessNumAgain < this.secretNum) {
       alert(`Your guess is too low! Previous guesses: ${this.prevGuesses.join}`)
+      // if the user's guess is less than secretNum, show the above message
     }
 
-  }
+  },
 }
 
 console.log(game.play())
+// invoke the play function in the game object
 
-// console.log(game.getGuess())
 
      
      
