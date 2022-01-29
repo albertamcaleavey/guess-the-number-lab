@@ -34,8 +34,7 @@ const game = {
   },
   render: function() {
     let getGuessNum2 = getGuess()
-    // created another variable by the same name to hold the value that getGuess() returns, since the one created in play can't be reffered to here due to scope?
-    // console.log(getGuessNum2)
+    // created a new variable that will also hold the value that getGuess() returns, since the one created in play can't be referenced to here due to scope
     if(getGuessNum2 === this.secretNum) {
       alert(`Congrats! You guessed the number in ${this.prevGuesses[this.prevGuesses.length - 1]} attempts!`)
       // if the user's guess is the same as secretNum, return the above message 
