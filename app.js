@@ -12,50 +12,52 @@ const game = {
       let callRender 
     do {
       getGuessNum = this.getGuess()
-      // created a variable to store the return value of getGuess() and invoked the getGuess() function
+      // variable stores the return value of getGuess(), invoked getGuess() 
       this.prevGuesses.push(getGuessNum)
       // adds the user's guess to the prevGuesses array
-      // console.log(this.prevGuesses)
-      // return this.prevGuesses
       callRender = this.render(getGuessNum)
-      //invoked the render() function, the argument is the variable that points to the returned value of getGuess()
-      if(getGuessNum === this.secretNum) break
-    // break statement to exit the do while loop when secretNum is guessed
+      // invoked the render() function, its argument is a variable that points to the returned value of getGuess()
+
+      // if(getGuessNum === this.secretNum) break
+      // break statement to exit the loop and end the game when secretNum is guessed
+
     } while (this.prevGuesses[this.prevGuesses.length - 1] !== this.secretNum)
     // used bracket notation to refer to the last element in the prevGuesses array
     // while the last element in the array is not the same as the secret number, invoke getGuess() and add its value (currentGuess) to the array, also invoke render()
+    return
+    // ends play method when secretNum is guessed
   },
   getGuess: function() {
      let input = null
-     // input points to the user input of the prompt message that appears in the window
+     // input refers to the user input of the prompt message
     while(input !== this.secretNum){
       input = prompt(`Enter a guess between ${this.smallestNum} and ${this.biggestNum} :`)
        // prompt returns a string containing the text entered by the user
       let currentGuess = parseInt(input)
-      //parseInt returns the input of the prompt as a number, so currentGuess = the number the user entered
+      // parseInt converts the input (initially a string) to a number
       return currentGuess
-    // if the input is not the same as secretNum, the while loop continues to prompt the user to enter a guess until it is
+    // if the input is not the same as secretNum, the while loop continues to prompt the user to enter a guess
     }
   },
   render: function(valueOfGetGuess) {
-    // entered a parameter for the render() function which is a placeholder for the argument getGuessNum, (variable that points to return value of getGuess())
-    // the variable getGuessNum created in play can't be accessed here, in the local scope of this function 
+    // render method alerts the user with a message, depending on the user's guess 
+    // parameter for render() is a placeholder for the argument getGuessNum, (variable that holds user's guess)
+    // variable getGuessNum created in play can't be accessed here
     if(valueOfGetGuess === this.secretNum) {
       alert(`Congrats! You guessed the number in ${this.prevGuesses.length} attempts!`)
-      // if the user's guess is the same as secretNum, show the above message 
+      // if the user's guess is the same as secretNum, alert
     } else if (valueOfGetGuess > this.secretNum) {
       alert(`Your guess is too high! Previous guesses: ${this.prevGuesses.join(', ')}`)
-      // if the user's guess is greater than secretNum, show the above message
+      // if the user's guess is greater than secretNum, alert
     } else if (valueOfGetGuess < this.secretNum) {
       alert(`Your guess is too low! Previous guesses: ${this.prevGuesses.join(', ')}`)
-      // if the user's guess is less than secretNum, show the above message
-      // do i need to return a value here?
+      // if the user's guess is less than secretNum, alert
     }
   },
 }
 
-console.log(game.play())
-// invokes the play function in the game object
+game.play()
+// invokes the play method in the game object
   
 
 
