@@ -19,11 +19,11 @@ const game = {
       // return this.prevGuesses
       callRender = this.render(getGuessNum)
       //invoked the render() function, the argument is the variable that points to the returned value of getGuess()
+      if(getGuessNum === this.secretNum) break
+    // break statement to exit the do while loop when secretNum is guessed
     } while (this.prevGuesses[this.prevGuesses.length - 1] !== this.secretNum)
     // used bracket notation to refer to the last element in the prevGuesses array
     // while the last element in the array is not the same as the secret number, invoke getGuess() and add its value (currentGuess) to the array, also invoke render()
-    if(getGuessNum === this.secretNum) break
-    // break statement to exit the do while loop when secretNum is guessed
   },
   getGuess: function() {
      let input = null
@@ -41,7 +41,7 @@ const game = {
     // entered a parameter for the render() function which is a placeholder for the argument getGuessNum, (variable that points to return value of getGuess())
     // the variable getGuessNum created in play can't be accessed here, in the local scope of this function 
     if(valueOfGetGuess === this.secretNum) {
-      alert(`Congrats! You guessed the number in ${this.prevGuesses[this.prevGuesses.length - 1]} attempts!`)
+      alert(`Congrats! You guessed the number in ${this.prevGuesses.length} attempts!`)
       // if the user's guess is the same as secretNum, show the above message 
     } else if (valueOfGetGuess > this.secretNum) {
       alert(`Your guess is too high! Previous guesses: ${this.prevGuesses.join(', ')}`)
