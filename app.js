@@ -22,6 +22,8 @@ const game = {
     } while (this.prevGuesses[this.prevGuesses.length - 1] !== this.secretNum)
     // used bracket notation to refer to the last element in the prevGuesses array
     // while the last element in the array is not the same as the secret number, invoke getGuess() and add its value (currentGuess) to the array, also invoke render()
+    if(getGuessNum === this.secretNum) break
+    // break statement to exit the do while loop when secretNum is guessed
   },
   getGuess: function() {
      let input = null
