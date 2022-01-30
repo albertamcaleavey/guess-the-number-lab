@@ -42,10 +42,10 @@ const game = {
       alert(`Congrats! You guessed the number in ${this.prevGuesses[this.prevGuesses.length - 1]} attempts!`)
       // if the user's guess is the same as secretNum, show the above message 
     } else if (valueOfGetGuess > this.secretNum) {
-      alert(`Your guess is too high! Previous guesses: ${this.prevGuesses}`)
+      alert(`Your guess is too high! Previous guesses: ${this.prevGuesses.join(', ')}`)
       // if the user's guess is greater than secretNum, show the above message
     } else if (valueOfGetGuess < this.secretNum) {
-      alert(`Your guess is too low! Previous guesses: ${this.prevGuesses}`)
+      alert(`Your guess is too low! Previous guesses: ${this.prevGuesses.join(', ')}`)
       // if the user's guess is less than secretNum, show the above message
       // do i need to return a value here?
     }
